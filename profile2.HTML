@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя визитка</title>
+    <style>
+        body {
+            background-image: url(гифф.gif);
+            background-size: cover;
+            padding: 20px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            margin: 0;
+        }
+
+        /* Верхняя панель для кнопки возврата */
+        .top-bar {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* Идентичная кнопка "← back!" из первого кода */
+        .back-btn {
+            display: inline-block;
+            background-color: #66c5e5;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 23px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-bottom: 20px;
+            transition: background-color 0.2s;
+        }
+
+        .back-btn:hover {
+            background-color: hsl(195, 53%, 47%);
+            text-decoration: none;
+        }
+
+        /* Главная общая карточка с вашим фоном */
+        .container {
+            background-color: #ffffff;
+            background-image: url(фонг.jpg);
+            background-size: cover;
+            background-position: center;
+            max-width: 900px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 15px;
+            box-sizing: border-box;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* Левая колонка: Рамка для фото */
+        .photo-frame {
+            flex: 0 0 280px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        /* Стиль для подписи под картинкой */
+        .photo-caption {
+            margin-top: 12px;
+            margin-bottom: 0;
+            font-size: 24px;
+            color: #4992ca;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Правая колонка: Текст на бэкграунде */
+        .content {
+            flex: 1;
+            text-align: left;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 40px;
+            display: block;
+            text-align: center;
+            background: linear-gradient(45deg, #5387ed, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        h2 {
+            color: #4992ca;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px dashed hsl(211, 75%, 66%);
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 19px;
+            color: hsl(201, 56%, 74%);
+            margin-top: 5px;
+        }
+
+        /* БЛОК: Контейнер для списка навыков и гифки справа */
+        .skills-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        li {
+            font-size: 17px;
+            color: lab(73.32% -5.79 -21.56);
+            margin-bottom: 5px;
+        }
+
+        /* Стили для самой гифки */
+        .skills-gif {
+            width: 110px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 40px; /* Сдвигает гифку влево от правого края */
+        }
+
+        .saturn-box {
+            margin: 15px 0;
+        }
+
+        .portfolio {
+            display: flex;
+            gap: 10px;
+        }
+
+        .portfolio img {
+            width: 32%;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid hsl(335, 100%, 38%);
+        }
+
+        .contacts {
+            margin-top: 15px;
+        }
+
+        a {
+            color: hwb(212 24% 14%);
+            margin-right: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Адаптация для телефонов */
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .photo-frame {
+                width: 80%;
+                flex: none;
+            }
+            .content {
+                text-align: center;
+            }
+            .skills-wrapper {
+                justify-content: center;
+            }
+            .skills-gif {
+                margin-right: 100px;
+            }
+            ul {
+                text-align: left;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.HTML" class="back-btn">← back!</a>
+    </div>
+
+    <div class="container">
+        <!-- ЛЕВАЯ ЧАСТЬ: Фото в рамке -->
+        <div class="photo-frame">
+            <img class="avatar" src="3.jpg" alt="fanny balloons!!!">
+            <p class="photo-caption">fanny balloons!!!</p>
+            <div class="saturn-box"></div>
+        </div>
+
+        <!-- ПРАВАЯ ЧАСТЬ: Весь текст поверх фона -->
+        <div class="content">
+            <h1>sir disari</h1>
+            <p><strong>artist</strong></p>
+
+            <h2>about myself...</h2>
+            <p>hugs, yo!</p>
+
+            <h2>my skills</h2>
+            <!-- Обертка для размещения списка и гифки в один ряд -->
+            <div class="skills-wrapper">
+                <ul>
+                    <li>illustration</li>
+                    <li>3D modeling</li>
+                    <li>book layout</li>
+                    <li>scriptwriting</li>
+                </ul>
+                <img class="skills-gif" src="г.gif" alt="skills animation">
+            </div>
+
+            <h2>contacts</h2>
+            <div class="contacts">
+                <a href="https://pinterest.com" target="_blank">Telegram</a>
+                <a href="https://vk.ru" target="_blank">TikTok</a>
+                <a href="mailto:example@mail.ru">Email</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

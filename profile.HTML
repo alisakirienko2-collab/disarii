@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой профиль</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-image: url(гифф.gif);
+            background-size: cover;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: hsl(0, 0%, 100%);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            background-size: cover;
+            margin-bottom: 20px;
+        }
+        .back-btn {
+            display: inline-block;
+            background-color: #66c5e5;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: background-color 0.2s;
+            font-size: 23px;
+        }
+        .back-btn:hover {
+            background-color: hsl(195, 53%, 47%);
+        }
+        .info-box {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 30px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background: linear-gradient(90deg, hsl(198, 85%, 74%), hsl(214, 54%, 56%));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* Стили для сетки картинок */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            cursor: pointer; /* Меняем курсор на руку при наведении */
+        }
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Стили для всплывающего окна (модального) */
+        .modal {
+            display: none; /* По умолчанию скрыто */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85); /* Темный фон */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-btn:hover {
+            color: #66c5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.HTML" class="back-btn">← back!</a>
+        <div class="card">
+            <div class="info-box">
+                <h1>My arts!</h1>
+                <!-- Блок со списком картинок -->
+                <div class="gallery">
+                    <img src="1.jpg" alt="Арт 1">
+                    <img src="2.jpg" alt="Арт 2">
+                    <img src="3.jpg" alt="Арт 3">
+                    <img src="4.jpg" alt="Арт 4">
+                    <img src="5.jpg" alt="Арт 5">
+                    <img src="6.jpg" alt="Арт 6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Всплывающее окно для просмотра фото -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    <script>
+        // Находим нужные элементы на странице
+        const modal = document.getElementById("imageModal");
+        const fullImage = document.getElementById("fullImage");
+        const closeBtn = document.querySelector(".close-btn");
+        const images = document.querySelectorAll(".gallery img");
+
+        // Добавляем событие клика на каждую картинку в галерее
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex"; // Показываем окно
+                fullImage.src = img.src;      // Подставляем адрес нажатой картинки
+            });
+        });
+
+        // Закрытие при нажатии на крестик
+        closeBtn.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        // Закрытие при клике на темный фон вокруг картинки
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
